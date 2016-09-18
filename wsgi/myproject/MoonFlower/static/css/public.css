@@ -1,0 +1,201 @@
+.public-container{
+	width: 80%;
+	margin: 0 auto;
+}
+
+.left{
+	float: left;
+}
+
+.clearFloat{
+	*zoom: 1;
+}
+.clearFloat:after{
+	content: '';
+	display: block;
+	clear: both;
+	visibility: hidden;
+	height: 0;
+}
+
+.container{
+	width: 85%;
+	margin: 0 auto;
+}
+
+
+/*头部导航*/
+header .header-logo{
+	float: left;
+	margin-top: 20px;
+}
+
+.header-divide{
+	border-bottom: 2px solid #b2b9bd;
+	padding-bottom: 15px;
+}
+/* Header */
+@media (min-width: 800px){
+	header{
+		position: fixed;
+		top: 0;
+		left: 0;
+		font-family: "raleway-regular", arial;
+		height: 70px;
+		width: 100%;
+		/*background: #2D4452;*/
+		/*opacity: 0.9;*/
+		z-index: 100;
+	}
+
+	header .header-logo a{
+		display: block;
+		width: 116px;
+		height: 116px;
+		background: url('../images/logo_moon.png') no-repeat;
+		background-size: 100%;
+	}
+
+	.scrollHeader{
+		background: #4C4C4C !important;
+		opacity: 0.7 !important;
+	}
+	.scrollHeaderLogo-a{
+		width: 58px !important;
+		height: 58px !important;
+	}
+	.scrollHeaderLogo{
+		margin-top: 7px !important;
+	}
+	.scrollHeader-nav{
+		margin-top: 25px !important;
+	}
+
+	header .header-nav{
+		float: right;
+		margin: 36px 0;
+	}
+
+	header .header-nav .item{
+		float: left;
+		width: 45px;
+		margin: 0 8px;
+		text-align: center;
+		padding-bottom: 5px;
+	}
+
+	header .header-nav a{
+		color: #fff;
+		font-size: 14px;
+		text-decoration: none;
+		padding-bottom: 5px;
+		border-bottom: 3px solid transparent;
+		font-weight: bold;
+		transition: border-bottom 0.5s,color 0.5s;
+	}
+	header .header-nav a:hover{
+		color: #bcbcbc;
+		border-bottom: 3px solid #fff;
+	}
+}
+
+
+@media (max-width: 800px){
+	header{
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-family: "raleway-regular", arial;
+		height: 100px;
+		width: 100%;
+		z-index: 100;
+	}
+
+	header .header-logo a{
+		display: block;
+		width: 58px;
+		height: 58px;
+		background: url('../images/logo_moon.png') no-repeat;
+		background-size: 100%;
+	}
+
+	.header-divide{
+		border-bottom: 1px solid #b2b9bd;
+	}
+
+	header .nav-icons,header .close-nav-icons{
+		float: right;
+		margin-right: 17px;
+		margin-top: 32px;
+		width: 40px;
+		height:40px;
+		cursor: pointer;
+		background: url("../images/nav_icons.png") no-repeat;
+	}
+	
+	.nav-icons{
+		background-position: 0 0;
+	}
+
+	.close-nav-icons{
+		background-position: -41px 0!important;
+	}
+
+
+	header .header-nav{
+		display:none;
+		width: 100%;
+		position: absolute;
+		top: 93px;
+		left: 0;
+		z-index: 100;
+		background: #141517;
+		opacity: 0.9;
+	}
+	
+	.header-nav-show{
+		display: block!important;
+	}
+
+	header .header-nav .item{
+		width: 100%;
+		height: 50px;
+		margin: 0 auto;
+		text-align: center;
+		border-top: 1px solid #222325;
+	}	
+	
+	header .header-nav .item a{
+		display: block;
+		color: #fff;
+		text-decoration: none;
+		font-family: "raleway-regular", arial;
+		line-height: 50px;
+	}
+}
+
+/*底部*/
+footer{
+	width: 100%;
+	height: 70px;
+	background: #142837;
+	color: #fff;
+	font-size: 12px;
+}
+@media (min-width: 500px){
+	footer .footerMessage{
+		float: left;
+		padding: 26px 0;
+	}
+
+	footer .promise{
+		float: right;
+		padding: 26px 0;
+	}
+}
+
+@media (max-width: 500px){
+	.footerMessage,.promise{
+		padding: 4px !important;
+	}
+}
