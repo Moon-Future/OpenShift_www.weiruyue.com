@@ -11,14 +11,24 @@ $(function(){
 		bannerCircle.filter(':eq('+index+')').siblings().removeClass('selected');
 	}
 
-	var timer=setInterval(function(){
+	var timer_func=function(){
 		var index=bannerBg.filter('.show').index();
 		if(index>=len-1){ //index>2
 			goto_index(0);
 		}else{
 			goto_index(index+1);
 		}
-	},3000)
+	}
+
+	var timer=setInterval(timer_func,3000)
+
+	$('.bannerBox').on('mouseover',function(){
+		clearInterval(timer);
+	})
+	$('.bannerBox').on('mouseout',function(){
+		timer=setInterval(timer_func,3000)
+	})
+
 
 	$('.right-arrow').on('click',function(){
 		var index=bannerBg.filter('.show').index();
@@ -41,38 +51,30 @@ $(function(){
 		goto_index(index);
 	})
 
-	// 音乐播放
-	$('.insertPic ul li').on('mouseenter',function(){
-		if($(this).children('.playButton').is(':hidden') && $(this).children('.stopButton').is(':hidden')){
-			$(this).children('.playButton').show();
-		}
-	})
-	$('.insertPic ul li').on('mouseleave',function(){
-		if($(this).children('.stopButton').is(':hidden')){
-			$(this).children('.playButton').hide();
-		}
-	})
-	$('.playButton').on('click',function(){
-		$(this).siblings('iframe').playThisStopOther();
-		$(this).hide();
-		$(this).siblings('.stopButton').show();
-	})
-	$('.stopButton').on('click',function(){
-		$(this).siblings('iframe').stopMusic();
-		$(this).hide();
-		$(this).siblings('.playButton').show();
-	})
-
 	//末尾婚礼音乐
 	$(window).scroll(function(){
 		var scrollTopValue=$(window).scrollTop();
-		var src=$('.love iframe').attr('src');
+		var data_src=$('.love iframe').attr('data-src');
 		// console.log(scrollTopValue);
-		if(scrollTopValue>=1400 && src[src.indexOf('auto')+5]=='0' && !$('.love iframe').hasClass('hasPlay')){
-			// console.log('标记');
+		if(scrollTopValue>=1200 && !$('.love iframe').hasClass('hasPlay')){
+			$('.love iframe').attr('src',data_src);
 			$('.love iframe').addClass('hasPlay');
-			$('.love iframe').playThisStopOther();
-			$('.stopButton').hide();
 		}
+	})
+
+	//鼠标移入图片显示阴影
+	var imgW=$('.insertPic div:eq(0) img').css('width');
+	$('.wraper').css({'width':imgW,'height':imgW});
+	$('.poem').css({'width':imgW});
+	$(window).on('resize',function(){
+		var imgW=$('.insertPic div:eq(0) img').css('width');
+		$('.wraper').css({'width':imgW,'height':imgW});
+		$('.poem').css({'width':imgW});
+	})
+	$('.insertPic > div').on('mouseenter',function(){
+		$(this).children('.wraper').fadeIn();
+	})
+	$('.insertPic > div').on('mouseleave',function(){
+		$(this).children('.wraper').fadeOut();
 	})
 })

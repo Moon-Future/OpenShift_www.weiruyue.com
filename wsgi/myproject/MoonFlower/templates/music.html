@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>静月茹花</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" href="/static/images/moon_128X128.ico">
+	<script type="text/javascript" src="/static/js/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="/static/js/public.js"></script>
+	<script type="text/javascript" src="/static/js/music.js"></script>
+	<link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/music.css">
+</head>
+<body>
+	{% include 'header.html' %}
+	<div class="musicBox container clearFloat">
+		<div class="musicPic"></div>
+		<div class="musicLyric ">
+			<h2>{{ musicList.SongName }}</h2>
+			<span>{{ musicList.Singer }}</span>
+			<div class="lyric">
+				{% for each in musicList.Lyric %}
+					<p>{{ each }}</p>
+				{% endfor %}
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="http://music.163.com/outchain/player?type=2&id={{ musicList.SongId }}&auto=1&height=32"></iframe>
+			</div>
+		</div>
+	</div>
+	<div class="recommend container">
+		<div class="recommend-head clearFloat">
+			<div class="recommend-title left">
+				<p>相关推荐</p>
+			</div>
+			<div class="recommend-select right">
+				<div class="select-bg select-pre left">
+					<div class="arrow pre-arrow"></div>
+				</div>
+				<div class="select-bg select-next right">
+					<div class="arrow next-arrow"></div>
+				</div>
+			</div>
+		</div>
+		<div class="musicSlideBox">
+			<div class="musicSlide">
+				<div class="musicCard left">
+					<div class="musicImg left">
+						<img src="/static/images/musicCard1.jpg">
+						<div class="musicName">
+							<h2>晚安</h2>
+							<p>丢火车</p>
+						</div>
+					</div>
+					<div class="musicImg left">
+						<img src="/static/images/musicCard2.jpg">
+						<div class="musicName">
+							<h2>The End of the World</h2>
+							<p>Skeeter Davis</p>
+						</div>
+					</div>
+				</div>
+				<div class="musicCard left">
+					<div class="musicImg left">
+						<img src="/static/images/musicCard3.jpg">
+						<div class="musicName">
+							<h2>Le Papillon</h2>
+							<p>Nicolas Errèra</p>
+						</div>
+					</div>
+					<div class="musicImg left">
+						<img src="/static/images/musicCard4.jpg">
+						<div class="musicName">
+							<h2>眉间雪</h2>
+							<p>HITA</p>
+						</div>
+					</div>
+				</div>
+				<div class="musicCard left">
+					<div class="musicImg left">
+						<img src="/static/images/musicCard5.jpg">
+						<div class="musicName">
+							<h2>陪你度过漫长岁月</h2>
+							<p>陈奕迅</p>
+						</div>
+					</div>
+					<div class="musicImg left">
+						<img src="/static/images/musicCard6.jpg">
+						<div class="musicName">
+							<h2>柳树下</h2>
+							<p>谢和弦/徐佳莹</p>
+						</div>
+					</div>
+				</div>
+				<div class="musicCard left">
+					<div class="musicImg left">
+						<img src="/static/images/musicCard7.jpg">
+						<div class="musicName">
+							<h2>相守</h2>
+							<p>栗先达</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% include 'footer.html' %}
+</body>
+<script type="text/javascript">
+	$('.musicPic').css({
+		"background": 'url("/static/images/{{ musicList.SongId }}.jpg") center no-repeat'
+	})
+	//选择点击播放
+	$('.musicImg').each(function(){
+		$(this).on('click',function(){
+			var musicName=$(this).children('div').children('h2').text();
+			{% for each_music in musicAll %}
+				if('{{ each_music.SongName }}' == musicName){
+					$('.musicLyric').children('h2').text(musicName);
+					$('.musicLyric').children('span').text('{{ each_music.Singer }}');
+					$('.lyric').html('{% for each in each_music.Lyric %}<p>{{ each }}</p>{% endfor %}<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="http://music.163.com/outchain/player?type=2&id={{ each_music.SongId }}&auto=1&height=32"></iframe>');
+					$('.musicPic').css({
+						'background': 'url("/static/images/{{ each_music.SongId }}.jpg") center no-repeat'
+					});
+					$('html,body').animate({scrollTop:100},1200);
+				}
+			{% endfor %}
+		})
+	})
+</script>
+</html>

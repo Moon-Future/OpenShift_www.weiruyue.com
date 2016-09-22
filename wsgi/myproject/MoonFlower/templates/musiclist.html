@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>音乐单</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="shortcut icon" href="../static/images/moon_128X128.ico">
+	<script type="text/javascript" src="../static/js/jquery-3.0.0.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/public.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/musiclist.css">
+</head>
+<body>
+	{% include 'header.html' %}
+	<div style="width: 100%;height:90%;">
+		<div class="musicMesBox left" id='musMes'>
+			<div class="musicMes">
+				<h2>眉间雪</h2>
+				<span>HITA</span>
+				<div class="lyric">
+					<p>是不是 每种感情都不容沉溺放肆</p>
+					<p>交心淡如君子</p>
+					<p>只道是 那些无关风花雪月的相思</p>
+					<p>说来几人能知</p>
+					<p>院内冬初 昔年与你栽的桃树</p>
+					<p>叶落早做尘土</p>
+					<p>新雪来时 又将陈酒埋了几壶</p>
+					<p>盼你归来后对酌</p>
+					<p>穿过落雁修竹 看过月升日暮</p>
+					<p>你说有一日总会名扬天下实现你抱负</p>
+					<p>那时低头替你剑穗缠着新流苏</p>
+					<p>心愿未听清楚</p>
+					<p>还挂着流苏 是否应该满足</p>
+					<p>也为你缝好冬衣寄去书信一两句叮嘱</p>
+					<p>该庆幸至远至疏你我还未至陌路</p>
+					<p>是时光从来残酷</p>
+					<p>最害怕 酒肆闲谈时候听见你名字</p>
+					<p>语气七分熟识</p>
+					<p>回过神 笑问何方大侠姓名竟不知</p>
+					<p>笑容有多讽刺</p>
+					<p>斟酒独酌 细雪纷纷覆上眉目</p>
+					<p>清寒已然入骨</p>
+					<p>还忆最初 有你扯过衣袖轻拂</p>
+					<p>笑说雪融似泪珠</p>
+					<p>曾经相伴相护 说着初心不负</p>
+					<p>想起某一日陪你策马同游闹市中漫步</p>
+					<p>那时正逢扬州三月桃花铺满路</p>
+					<p>神情难免恍惚</p>
+					<p>江湖的尽头是否只剩孤独</p>
+					<p>都怪我玲珑心思执念太过以尘网自缚</p>
+					<p>前方太辽阔若问此去应去向何处</p>
+					<p>把来路当做归途</p>
+					<p>桃树下 那年落雪为你唱一段乐府</p>
+					<p>信了人不如故</p>
+					<p>只如今 茫茫大雪之中等着谁回顾</p>
+					<p>明知无人回顾</p>
+					<p>谁能初心不负</p>
+				</div>
+			</div>
+			<div class="playButton">
+				<a class="btn" href="#">进入播放</a>
+			</div>
+		</div>
+		<!-- <div class="musicMesBox left" id='musPic' style="height:100%">
+			<img style="width:100%;height:100%" src="../static/images/water.jpg">
+		</div> -->
+		<div class="left" id="picWall" style="width: 70%;height:100%;display: none">
+			<div class="listTile">
+				<ul>
+					<li class="active">全部</li>
+					<li>::</li>
+					<li>古风古典</li>
+					<li>::</li>
+					<li>剧情念白</li>
+					<li>::</li>
+					<li>磁性男生</li>
+					<li>::</li>
+					<li>空灵女声</li>
+				</ul>
+			</div>
+			<iframe id="listFrame" name="aaa" frameborder="0" width="100%" height="100%;" src="../list"></iframe>
+		</div>
+		<div id="loading" style="position: absolute;left:50%;top:42%;z-index: 100;">
+			<img src="../static/images/loading.gif">
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+var sizeNum=6;
+window.onload=function(){
+	$('#loading').hide();
+	$('#picWall').show();
+	var liTitle=$('.listTile ul li');
+	var imgs=document.getElementById('listFrame').contentWindow.document.getElementById('bankImages').getElementsByTagName('img');
+	for(var i=0,len=liTitle.length;i<len;i+=2){
+		(function(arg){
+			$(liTitle[arg]).click(function(){
+				$(this).addClass('active');
+				$(this).siblings().removeClass('active');
+				switch(arg){
+					case 0 :
+						sizeNum=6;
+						$('#listFrame').attr('src','../list');
+						break;
+					case 2 :
+						sizeNum=4;
+						$('#listFrame').attr('src','../list');
+						// document.getElementById('listFrame').contentWindow.window.location.reload(true);
+						break;
+					case 4 :
+						sizeNum=2;
+						$('#listFrame').attr('src','../list');
+						break;
+					case 6 :
+						sizeNum=5;
+						$('#listFrame').attr('src','../list');
+						break;
+					case 8 :
+						sizeNum=3;
+						$('#listFrame').attr('src','../list');
+						break;
+					default:break;
+				}
+			});
+		})(i)
+	}
+}
+</script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>添加音乐</title>
+
+	<style type="text/css">
+		form div{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<form method="POST">
+	{% csrf_token %}
+		<div>
+			<label>歌名</label>
+			<input type="text" name="SongName">
+		</div>
+		<div>
+			<label>歌手</label>
+			<input type="text" name="Singer">
+		</div>
+		<div>
+			<label>歌曲id</label>
+			<textarea name="SongId" rows="2" cols="50"></textarea>	
+		</div>
+		<div>
+			<label>歌词</label>
+			<textarea name="Lyric" rows="20" cols="50"></textarea>	
+		</div>
+		<input type="submit" name="add" value="添加">
+	</form>
+</body>
+</html>

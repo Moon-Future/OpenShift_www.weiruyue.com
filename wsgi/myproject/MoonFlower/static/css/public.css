@@ -6,6 +6,9 @@
 .left{
 	float: left;
 }
+.right{
+	float: right;
+}
 
 .clearFloat{
 	*zoom: 1;
@@ -41,7 +44,7 @@ header .header-logo{
 		top: 0;
 		left: 0;
 		font-family: "raleway-regular", arial;
-		height: 70px;
+		height: 153px;
 		width: 100%;
 		/*background: #2D4452;*/
 		/*opacity: 0.9;*/
@@ -59,6 +62,7 @@ header .header-logo{
 	.scrollHeader{
 		background: #4C4C4C !important;
 		opacity: 0.7 !important;
+		height: 70px !important;
 	}
 	.scrollHeaderLogo-a{
 		width: 58px !important;

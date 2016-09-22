@@ -1,0 +1,162 @@
+body{
+	background: #F4F4F4
+}
+header{
+	background: #4A4A4A;
+	height: 153px;
+}
+
+.musicBox{
+	height: 600px;
+	margin-top: 180px;
+	background: #fff;
+	margin-bottom: 50px;
+}
+
+/*.musicBox .musicLyric{
+	width: 26%;
+	height: 92%;
+	padding: 2%;
+}*/
+.musicBox .musicLyric h2{
+	color: #555;
+}
+.musicBox .musicLyric span{
+	padding: 4px 0 8px 0;
+	color: #b9b9b9;
+	font-style: italic;
+}
+.musicBox .musicLyric .lyric{
+	margin-top: 15px;
+	overflow: auto;
+	overflow-x: hidden;
+	height: 80%;
+	color: #555555;
+	font-size: 0.8em;
+	line-height: 2em;
+}
+
+/*.musicBox .musicPic{
+	width: 70%;
+	height: 100%;
+	background: url('../images/banner_1.jpg') no-repeat;
+	background-size: cover;
+}*/
+
+
+/*相关推荐*/
+.recommend{
+	margin-bottom: 50px;
+}
+
+.recommend .recommend-head{
+	padding-bottom: 10px;
+	border-bottom: 2px solid #b2b9bd;
+	font-size: 18px;
+	font-weight: 400;
+	color: #333332;
+}
+
+.recommend .recommend-head .recommend-select .select-bg{
+	width: 28px;
+	height: 28px;
+	background: #4A4A4A;
+	cursor: pointer;
+	opacity: 0.8;
+}
+.recommend .recommend-head .recommend-select .select-bg:hover{
+	opacity: 1;
+}
+.recommend .recommend-head .recommend-select .select-pre{
+	margin-right: 10px;
+	position: relative;
+}
+.arrow{
+	width: 10px;
+	height: 10px;
+	border-width: 0 0 2px 2px ;
+	border-color: #fff;
+	border-style: solid;
+	/*transform:rotateZ(-135deg);*/
+	position: relative;
+	top: 8px;
+	left: 6px;
+}
+.pre-arrow{
+	transform:rotateZ(45deg);
+	left: 10px;
+}
+.next-arrow{
+	transform:rotateZ(-135deg);
+}
+
+.recommend .musicSlideBox{
+	margin-top: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+.musicSlide{
+	width: 300%;
+	position: relative;
+	left: 0;
+}
+.musicCard{
+	width: 22.2222%;
+	background: #fff;
+}
+.musicCard .musicImg{
+	width: 50%;
+	cursor: pointer;
+}
+.musicCard img{
+	width: 100%;
+}
+
+.musicCard .musicImg .musicName{
+	margin-top: 10px;
+	text-align: center;
+}
+.musicName h2{
+	font-size: 1em;
+	color: #333332;
+}
+.musicName p{
+	color: #b9b9b9;
+	font-style: italic;
+	font-size: 0.8em;
+	padding: 3px
+}
+
+
+
+
+@media (min-width: 800px){
+	.musicBox .musicLyric{
+		width: 26%;
+		height: 92%;
+		padding: 2%;
+		float: left;
+	}
+	.musicBox .musicPic{
+		width: 70%;
+		height: 100%;
+		background-size: cover;
+		float: right;
+	}
+}
+
+@media (max-width: 800px){
+	header{
+		height: 94px;
+	}
+	.musicBox .musicLyric{
+		width: 100%;
+		height: 47%;
+	}
+	.musicBox .musicPic{
+		width: 100%;
+		height: 50%;
+		background-size: cover;
+		/*background-position: center;*/
+	}
+}

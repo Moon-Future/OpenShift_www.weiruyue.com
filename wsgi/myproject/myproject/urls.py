@@ -20,4 +20,11 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', 'MoonFlower.views.index',name='index'),
+    # url(r'^music/$', 'MoonFlower.views.music',name='music'),
+    url(r'^music/(?P<SongId>\d+)/$', 'MoonFlower.views.music',name='music'),
+    url(r'^musiclist/$', 'MoonFlower.views.musiclist',name='musiclist'),
+    url(r'^list/$', 'MoonFlower.views.list',name='list'),
+    url(r'^header/$', 'MoonFlower.views.header',name='header'),
+    url(r'^footer/$', 'MoonFlower.views.footer',name='footer'),
+    url(r'^addmusic/$', 'MoonFlower.views.addmusic',name='addmusic'),
 ]
